@@ -1,0 +1,19 @@
+# Ignore environment variables and sensitive data
+.env
+
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore build or debug folders (if you build your backend)
+dist/
+build/
+
+# Optional: Ignore IDE/editor settings
+.vscode/
+.idea/
