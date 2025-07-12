@@ -1,11 +1,21 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Post from "./pages/PostDetails";
 
-const App = () => {
+function app() {
   return (
-    <div>
-     <h2 className='text-2xl font-semibold text-red-600 p-4 bg-red-100 ronded-md shadow-md'>Hello</h2>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/posts/:slug" element={<Post />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default app;
