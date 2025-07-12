@@ -106,10 +106,15 @@ export const categoryService = {
 export const authService = {
   // Register a new user
   register: async (userData) => {
-    const response = await api.post("/auth/register", userData);
-    return response.data;
+    try {
+      const response = await api.post("/auth/register", userData);
+      return response.data;
+    } catch (error) {
+      // 👇 This will pass a clean message to your frontend component
+      const message = error.response?.data?.message || "Registration failed";
+      throw new Error(message);
+    }
   },
-
   // Login user
   login: async (credentials) => {
     const response = await api.post("/auth/login", credentials);
